@@ -1,0 +1,356 @@
+
+<html>
+<head>
+<title>Tic-Tac-Toe(by Piyush Kaushik)</title>
+  <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</head>
+<body style="background-color:white;background-image:url('http://www.pixelstalk.net/wp-content/uploads/2016/10/Block-HD-Wallpaper.jpg');" onload="init()">
+<style>
+  
+  
+.tttStyle{
+width:350px;
+height:350px;
+padding:10px;
+margin-top:auto;
+margin-left:auto;
+border-style:transparent;
+}
+
+
+.button{
+vertical-align: top;
+height:100px;
+width:100px;
+font-size:40px;
+font-weight:bold;
+background-color: black;
+}
+</style>
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Select 'O'(Nought) or 'X'(Cross) as human player.</h4>
+        </div>
+        <div class="modal-body">
+      <p>Quick Rules: </p>
+		  <p>1. Human plays first by clicking a cell of his/her choice. AI plays second followed by human and so on.</p>
+		  <p>3. First player to complete a row or column or diagonal with selected mark(i.e. O or X) wins the game.</p>
+		  <p>4. Game begins only by clicking start button and selecting either O or X .</p>
+		  <p>5. If you reset the game(after the game finishes or in middle of the game), rule number 4 follows again.</p>
+		  
+          </div>
+       <div class="modal-footer" style="text-align:right;">
+	   <button id='o' style="font-size:35px;font-weight:bold;" onclick="remember(this.id)"  data-dismiss="modal">O</button>
+		  <button id='x' style="font-size:35px;font-weight:bold;" onclick="remember(this.id)"  data-dismiss="modal">X</button>
+	   </div>
+      </div>
+      
+    </div>
+  </div>
+
+
+<div class="container-fluid">
+
+<div class="row">
+<div class="col-xs-12 text-center">
+<h1 style="font-family:Lobster;font-weight:bold:font-size:70px;text-shadow:1px 1px white;">Tic-Tac-Toe</h1>
+</div>
+</div>
+
+
+<div class="row text-center">
+<div class="col-xs-4"><!--This column has nothing to show--></div>
+
+
+<div class="col-xs-4 tttStyle">
+<!--This column has actual calculator displayed-->
+
+<div >
+
+<button id="btn1" class="button gridButton" onClick='imprintHuman(this.id)'></button>
+<button id="btn2" class="button gridButton" onClick='imprintHuman(this.id)'></button>
+<button id="btn3" class="button gridButton" onClick='imprintHuman(this.id)'></button>
+<button id="btn4" class="button gridButton" onClick='imprintHuman(this.id)'></button>
+<button id="btn5" class="button gridButton" onClick='imprintHuman(this.id)'></button>
+<button id="btn6" class="button gridButton" onClick='imprintHuman(this.id)'></button>
+<button id="btn7" class="button gridButton" onClick='imprintHuman(this.id)'></button>
+<button id="btn8" class="button gridButton" onClick='imprintHuman(this.id)'></button>
+<button id="btn9" class="button gridButton" onClick='imprintHuman(this.id)'></button>
+
+
+</div>
+
+</div>
+
+<div class="col-xs-4"><!--This column has nothing to show--></div>
+
+
+</div>
+
+<div class="row text-center">
+<div class="col-xs-2"><!--This column has nothing to show--></div>
+<div class="col-xs-8">
+
+<div>
+<button id="reset" class="resetButton"style="color:black; border-style:solid;border-radius:5px;font-size:30px;font-weight:bold;border-color:black;" onClick=reset()>Reset</button>
+ <button id="start" class="startButton" style="color:black; border-style:solid;border-radius:5px;font-size:30px;font-weight:bold;border-color:black;" data-toggle="modal" data-target="#myModal">Start</button>
+</div>
+</div>
+<div class="col-xs-2"><!--This column has nothing to show--></div>
+</div>
+
+<div class="row text-center">
+<div class="col-xs-12">
+<p id="result" style="margin-top:5px;font-size:25px;font-weight:bold;color:red;"></p>
+</div>
+</div>
+
+  <div class="row text-center" style="margin-top:10px;">
+<div class="col-xs-12">
+<p style="font-weight:bold;color:white"><i class="fa fa-copyright" aria-hidden="true"></i>KaushikCodeArts : App by Piyush Kaushik</p>
+</div>
+</div>
+<div class="row text-center">
+                <div class="col-xs-12">
+				<a id="fb" class="btn btn-default text-center" style="background-color:transparent;border-color:transparent;" href="https://www.facebook.com/sharer/sharer.php?u=https://codepen.io/Kaushik02/full/jrBBrB/" target="_blank"><i class="fa fa-facebook" aria-hidden="true" style="color:blue;font-size:30px;font-weight:bold;"></i></a>
+                <a id="whatsapp" class="btn btn-default text-center" style="background-color:transparent;border-color:transparent;" href="whatsapp://send?text=https://codepen.io/Kaushik02/full/jrBBrB/"><i class="fa fa-whatsapp" aria-hidden="true" style="color:Green;font-size:30px;font-weight:bold;"></i></a>
+        		<a id="tweet" class="btn btn-default text-center" style="background-color:transparent;border-color:transparent;" href="https://twitter.com/home?status=https://codepen.io/Kaushik02/full/jrBBrB/" target="_blank"><i class="fa fa-twitter" aria-hidden="true" style="color:skyblue;font-size:30px;font-weight:bold;"></i></a>
+                </div>
+        </div>
+</div>
+
+
+<script>
+var choiceHuman;
+var choiceAI;
+var gridArray=[];
+var tempArray=[];
+var index;
+var resultFlag;
+var count;
+var countVisits;
+var state=0;
+var gridButtonList = document.getElementsByClassName("gridButton");
+var resetButtonList = document.getElementsByClassName("resetButton");
+
+function init(){
+document.getElementById("result").innerHTML= "";
+state=0;
+for (var i = 0; i < gridButtonList.length; i++) {
+
+
+gridButtonList[i].style.background="black";
+gridButtonList[i].disabled=true;
+gridButtonList[i].innerHTML="";
+	}
+resetButtonList[0].disabled=true;
+enableStart();
+}
+
+function reset(){
+
+init();
+}
+
+function remember(getId){
+disableStart();
+enableGridReset();
+choiceHuman=document.getElementById(getId).innerHTML;
+if(choiceHuman==='X'){
+choiceAI='O';
+}
+else 
+choiceAI='X';
+console.log("Human_Chose :"+choiceHuman);
+console.log("AI_Chose :"+ choiceAI);
+}
+
+function enableGridReset(){
+for (var i = 0; i < gridButtonList.length; i++) {
+gridButtonList[i].disabled=false;
+	}
+resetButtonList[0].disabled=false;
+}
+
+function imprintHuman(getId){
+document.getElementById(getId).innerHTML=choiceHuman;
+document.getElementById(getId).style.color = "white";
+//disable this cell so can't be updated again =) 
+document.getElementById(getId).disabled=true;
+updateGridArray();
+
+tests(choiceHuman);
+if(state===0){
+countVisits=0;
+while(gridArray[index]!='' && countVisits<=7){
+countVisits+=1;
+index = randomCalc(0,8);
+}
+console.log("random num generated is :"+index);
+console.log("count for num of visits is :"+countVisits);
+
+imprintAI(index);
+}
+else
+noMovesNow();
+}
+
+function imprintAI(ind){
+gridButtonList[ind].innerHTML=choiceAI;
+gridButtonList[ind].style.color="white";
+gridButtonList[ind].disabled=true;
+tests(choiceAI);
+}
+
+function randomCalc(min, max){
+var x = Math.floor(Math.random() * (max - min+1)) + min;
+return x;
+}
+
+function updateGridArray(){
+for (var i = 0; i < gridButtonList.length; i++) {
+       gridArray[i]=gridButtonList[i].innerHTML;
+	}
+	console.log("gridArray is : "+gridArray);
+}
+
+function enableStart(){
+var dataToggleValue= document.getElementById("start").getAttribute("data-toggle");  
+if ((dataToggleValue==="")) {       
+    document.getElementById("start").removeAttribute("data-toggle");  
+    document.getElementById("start").setAttribute("data-toggle", "modal");
+}
+}
+
+function disableStart(){
+var dataToggleValue = document.getElementById("start").getAttribute("data-toggle");  
+if ((dataToggleValue==="modal")) {      
+    document.getElementById("start").removeAttribute("data-toggle");  
+document.getElementById("start").setAttribute("data-toggle", "");
+}
+}
+
+function tests(mark){
+resultFlag=0;
+while(resultFlag<=3){
+horizontalTest(mark);
+
+verticalTest(mark);
+
+diagonalTest(mark);
+
+}
+console.log("p tag value at this point is :"+ document.getElementById("result").innerHTML);
+console.log("result Flag value before going into draw function is :"+resultFlag);
+if(resultFlag===6){
+drawTest();
+}
+}
+
+function horizontalTest(mark){
+if(gridButtonList[0].innerHTML===mark && gridButtonList[1].innerHTML===mark && gridButtonList[2].innerHTML===mark ){
+gridButtonList[0].style.background="skyblue";
+gridButtonList[1].style.background="skyblue";
+gridButtonList[2].style.background="skyblue";
+document.getElementById("result").innerHTML= mark + " is the winner !!";
+state=1;
+}
+else if (gridButtonList[3].innerHTML===mark && gridButtonList[4].innerHTML===mark && gridButtonList[5].innerHTML===mark ){
+gridButtonList[3].style.background="skyblue";
+gridButtonList[4].style.background="skyblue";
+gridButtonList[5].style.background="skyblue";
+document.getElementById("result").innerHTML= mark + " is the winner !!";
+state=1;
+}
+else if (gridButtonList[6].innerHTML===mark && gridButtonList[7].innerHTML===mark && gridButtonList[8].innerHTML===mark ){
+gridButtonList[6].style.background="skyblue";
+gridButtonList[7].style.background="skyblue";
+gridButtonList[8].style.background="skyblue";
+document.getElementById("result").innerHTML= mark + " is the winner !!";
+state=1;
+}
+
+else
+resultFlag+=1;
+}
+
+function verticalTest(mark){
+if(gridButtonList[0].innerHTML===mark && gridButtonList[3].innerHTML===mark && gridButtonList[6].innerHTML===mark ){
+gridButtonList[0].style.background="skyblue";
+gridButtonList[3].style.background="skyblue";
+gridButtonList[6].style.background="skyblue";
+document.getElementById("result").innerHTML= mark + " is the winner !!";
+state=1;
+}
+else if (gridButtonList[1].innerHTML===mark && gridButtonList[4].innerHTML===mark && gridButtonList[7].innerHTML===mark ){
+gridButtonList[1].style.background="skyblue";
+gridButtonList[4].style.background="skyblue";
+gridButtonList[7].style.background="skyblue";
+document.getElementById("result").innerHTML= mark + " is the winner !!";
+state=1;
+}
+else if (gridButtonList[2].innerHTML===mark && gridButtonList[5].innerHTML===mark && gridButtonList[8].innerHTML===mark ){
+gridButtonList[2].style.background="skyblue";
+gridButtonList[5].style.background="skyblue";
+gridButtonList[8].style.background="skyblue";
+document.getElementById("result").innerHTML= mark + " is the winner !!";
+state=1;
+}
+else
+resultFlag+=1;
+}
+
+function diagonalTest(mark){
+if(gridButtonList[2].innerHTML===mark && gridButtonList[4].innerHTML===mark && gridButtonList[6].innerHTML===mark ){
+gridButtonList[2].style.background="skyblue";
+gridButtonList[4].style.background="skyblue";
+gridButtonList[6].style.background="skyblue";
+document.getElementById("result").innerHTML= mark + " is the winner !!";
+state=1;
+}
+
+else if (gridButtonList[0].innerHTML===mark && gridButtonList[4].innerHTML===mark && gridButtonList[8].innerHTML===mark ){
+gridButtonList[0].style.background="skyblue";
+gridButtonList[4].style.background="skyblue";
+gridButtonList[8].style.background="skyblue";
+document.getElementById("result").innerHTML= mark + " is the winner !!";
+state=1;
+}
+else
+resultFlag+=1;
+}
+
+function drawTest(){
+count=0;
+for(var i=0;i<gridButtonList.length;i++){
+if(gridButtonList[i].innerHTML===""){
+count+=1;
+}
+}
+console.log("empty cells at this point i.e. count = "+count);
+if(count===0){
+state=1;
+document.getElementById("result").innerHTML= "The game ended in a draw !!";
+}
+}
+
+function noMovesNow(){
+for (var i = 0; i < gridButtonList.length; i++) {
+gridButtonList[i].disabled=true;
+	}
+}
+</script>
+</body>
+</html>
