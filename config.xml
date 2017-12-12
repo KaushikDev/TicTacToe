@@ -7,7 +7,7 @@
 
 <!-- versionCode is optional and Android only -->
 
-  <name>Arkanoid</name>
+  <name>TicTacToe</name>
   <platform name="ios" />
   <platform name="android" />
   <platform name="winphone" />
