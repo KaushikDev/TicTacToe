@@ -11,7 +11,10 @@ var gridButtonList = document.getElementsByClassName("gridButton");
 var resetButtonList = document.getElementsByClassName("resetButton");
 
 function init(){
-document.getElementById("result").innerHTML= "";
+	
+document.getElementById("result").innerHTML= "Can you beat the AI?";
+document.getElementById("result").style.color = "white";
+document.addEventListener("deviceready", onDeviceReady, false);
 state=0;
 for (var i = 0; i < gridButtonList.length; i++) {
 
@@ -31,6 +34,8 @@ init();
 
 function remember(getId){
 disableStart();
+doTheseOnGamePlay();
+
 enableGridReset();
 choiceHuman=document.getElementById(getId).innerHTML;
 if(choiceHuman==='X'){
@@ -207,7 +212,7 @@ count+=1;
 console.log("empty cells at this point i.e. count = "+count);
 if(count===0){
 state=1;
-document.getElementById("result").innerHTML= "The game ended in a draw !!";
+document.getElementById("result").innerHTML= "Match Draw !!";
 }
 }
 
@@ -216,3 +221,22 @@ for (var i = 0; i < gridButtonList.length; i++) {
 gridButtonList[i].disabled=true;
 	}
 }
+
+		function onDeviceReady(){
+		document.addEventListener("backbutton", onBackKeyDown, false);
+		document.addEventListener("saveButton", save, false);
+		devicePlatform = device.platform;
+		console.log(devicePlatform);
+		}
+		function onBackKeyDown() {
+			if(confirm("Hey!! You really wanna leave??")){
+				navigator.app.exitApp();
+			}
+ 		}
+		
+		
+		function doTheseOnGamePlay(){
+		document.getElementById("result").style.innerHTML = "Game In Progress";
+		document.getElementById("start").style.color = "Green";
+			
+		}
