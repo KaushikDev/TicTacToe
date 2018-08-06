@@ -72,6 +72,7 @@ console.log("random num generated is :"+index);
 console.log("count for num of visits is :"+countVisits);
 
 imprintAI(index);
+
 }
 else
 noMovesNow();
@@ -134,21 +135,24 @@ if(gridButtonList[0].innerHTML===mark && gridButtonList[1].innerHTML===mark && g
 gridButtonList[0].style.background="skyblue";
 gridButtonList[1].style.background="skyblue";
 gridButtonList[2].style.background="skyblue";
-document.getElementById("result").innerHTML= mark + " is the winner !!";
+document.getElementById("result").innerHTML=  "<i class='fa fa-trophy' style='color:gold;'></i>" + " " + mark + " is the winner !!";
+document.getElementById("gamePad").style.color = "White";
 state=1;
 }
 else if (gridButtonList[3].innerHTML===mark && gridButtonList[4].innerHTML===mark && gridButtonList[5].innerHTML===mark ){
 gridButtonList[3].style.background="skyblue";
 gridButtonList[4].style.background="skyblue";
 gridButtonList[5].style.background="skyblue";
-document.getElementById("result").innerHTML= mark + " is the winner !!";
+document.getElementById("result").innerHTML=  "<i class='fa fa-trophy' style='color:gold;'></i>" + " " + mark + " is the winner !!";
+document.getElementById("gamePad").style.color = "White";
 state=1;
 }
 else if (gridButtonList[6].innerHTML===mark && gridButtonList[7].innerHTML===mark && gridButtonList[8].innerHTML===mark ){
 gridButtonList[6].style.background="skyblue";
 gridButtonList[7].style.background="skyblue";
 gridButtonList[8].style.background="skyblue";
-document.getElementById("result").innerHTML= mark + " is the winner !!";
+document.getElementById("result").innerHTML=  "<i class='fa fa-trophy' style='color:gold;'></i>" + " " + mark + " is the winner !!";
+document.getElementById("gamePad").style.color = "White";
 state=1;
 }
 
@@ -161,21 +165,24 @@ if(gridButtonList[0].innerHTML===mark && gridButtonList[3].innerHTML===mark && g
 gridButtonList[0].style.background="skyblue";
 gridButtonList[3].style.background="skyblue";
 gridButtonList[6].style.background="skyblue";
-document.getElementById("result").innerHTML= mark + " is the winner !!";
+document.getElementById("result").innerHTML=  "<i class='fa fa-trophy' style='color:gold;'></i>" + " " + mark + " is the winner !!";
+document.getElementById("gamePad").style.color = "White";
 state=1;
 }
 else if (gridButtonList[1].innerHTML===mark && gridButtonList[4].innerHTML===mark && gridButtonList[7].innerHTML===mark ){
 gridButtonList[1].style.background="skyblue";
 gridButtonList[4].style.background="skyblue";
 gridButtonList[7].style.background="skyblue";
-document.getElementById("result").innerHTML= mark + " is the winner !!";
+document.getElementById("result").innerHTML=  "<i class='fa fa-trophy' style='color:gold;'></i>" + " " + mark + " is the winner !!";
+document.getElementById("gamePad").style.color = "White";
 state=1;
 }
 else if (gridButtonList[2].innerHTML===mark && gridButtonList[5].innerHTML===mark && gridButtonList[8].innerHTML===mark ){
 gridButtonList[2].style.background="skyblue";
 gridButtonList[5].style.background="skyblue";
 gridButtonList[8].style.background="skyblue";
-document.getElementById("result").innerHTML= mark + " is the winner !!";
+document.getElementById("result").innerHTML=  "<i class='fa fa-trophy' style='color:gold;'></i>" + " " + mark + " is the winner !!";
+document.getElementById("gamePad").style.color = "White";
 state=1;
 }
 else
@@ -187,7 +194,8 @@ if(gridButtonList[2].innerHTML===mark && gridButtonList[4].innerHTML===mark && g
 gridButtonList[2].style.background="skyblue";
 gridButtonList[4].style.background="skyblue";
 gridButtonList[6].style.background="skyblue";
-document.getElementById("result").innerHTML= mark + " is the winner !!";
+document.getElementById("result").innerHTML=  "<i class='fa fa-trophy' style='color:gold;'></i>" + " " + mark + " is the winner !!";
+document.getElementById("gamePad").style.color = "White";
 state=1;
 }
 
@@ -195,7 +203,8 @@ else if (gridButtonList[0].innerHTML===mark && gridButtonList[4].innerHTML===mar
 gridButtonList[0].style.background="skyblue";
 gridButtonList[4].style.background="skyblue";
 gridButtonList[8].style.background="skyblue";
-document.getElementById("result").innerHTML= mark + " is the winner !!";
+document.getElementById("result").innerHTML= "<i class='fa fa-trophy' style='color:gold;'></i>" + " " + mark + " is the winner !!";
+document.getElementById("gamePad").style.color = "White";
 state=1;
 }
 else
@@ -236,7 +245,7 @@ gridButtonList[i].disabled=true;
 		
 		
 		function doTheseOnGamePlay(){
-		document.getElementById("result").style.innerHTML = "Game In Progress";
-		document.getElementById("start").style.color = "Green";
+		document.getElementById("result").innerHTML = "Game In Progress";
+		document.getElementById("gamePad").style.color = "Green";
 			
 		}

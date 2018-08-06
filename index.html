@@ -38,8 +38,16 @@ background-color: white;
 .resetButton, .startButton{
 background-color:transparent;border-color:transparent;height:auto;padding:0;}
 
-.fa-repeat, .fa-gamepad {
+.btn-default{
+background-color:transparent;border-color:transparent;}
+
+
+ .fa-gamepad {
 color:white;font-size:50px;
+}
+
+.fa-whatsapp, .fa-twitter, .fa-facebook, .fa-copyright {
+color:white;font-size:10px;
 }
 </style>
 
@@ -110,12 +118,14 @@ color:white;font-size:50px;
 </div>
 
 <div class="row text-center">
-<div class="col-xs-6">
-<button id="reset" class="resetButton" onClick=reset()><i class="fa fa-repeat"></i></button>
+<div class="col-xs-12">
+<button id="start" class="startButton" data-toggle="modal" data-target="#myModal"><i class="fa fa-gamepad" id="gamePad"></i></button>
 </div>
-<div class="col-xs-6">
-<button id="start" class="startButton" data-toggle="modal" data-target="#myModal"><i class="fa fa-gamepad"></i></button>
+</div>
 
+<div class="row text-center">
+<div class="col-xs-12">
+<button id="reset" class="resetButton" onClick=reset()><i class="fa fa-repeat"></i></button>
 </div>
 </div>
 
@@ -128,15 +138,18 @@ color:white;font-size:50px;
   
 <div class="row text-center">
                 <div class="col-xs-12">
-		<a id="fb" class="btn btn-default text-center" style="background-color:transparent;border-color:transparent;" href="https://www.facebook.com/sharer/sharer.php?u=https://KaushikDev.github.io/TicTacToe" target="_blank"><i class="fa fa-facebook" aria-hidden="true" style="color:white;font-size:30px;font-weight:bold;"></i></a>
-                <a id="whatsapp" class="btn btn-default text-center" style="background-color:transparent;border-color:transparent;" href="whatsapp://send?text=https://KaushikDev.github.io/TicTacToe"><i class="fa fa-whatsapp" aria-hidden="true" style="color:white;font-size:30px;font-weight:bold;"></i></a>
-        	<a id="tweet" class="btn btn-default text-center" style="background-color:transparent;border-color:transparent;" href="https://twitter.com/home?status=https://KaushikDev.github.io/TicTacToe" target="_blank"><i class="fa fa-twitter" aria-hidden="true" style="color:white;font-size:30px;font-weight:bold;"></i></a>
+			<a id="fb" class="btn btn-default text-center" href="https://www.facebook.com/sharer/sharer.php?u=https://KaushikDev.github.io/TicTacToe" target="_blank"><i class="fa fa-facebook"></i></a>
+		
+			<a id="whatsapp" class="btn btn-default text-center" href="whatsapp://send?text=https://KaushikDev.github.io/TicTacToe"><i class="fa fa-whatsapp"></i></a>
+        	
+			<a id="tweet" class="btn btn-default text-center" href="https://twitter.com/home?status=https://KaushikDev.github.io/TicTacToe" target="_blank"><i class="fa fa-twitter" ></i></a>
                 </div>
         </div>
+		
 	
 	<div class="row text-center" style="margin-top:10px;">
 <div class="col-xs-12">
-<a href="https://kaushikdev.github.io/portfolio/" target="_blank" style="color:white;"><i class="fa fa-copyright" aria-hidden="true" style="color:white;font-size:15px;"></i>KaushikCodeArts 2018</a>
+<a href="https://kaushikdev.github.io/portfolio/" style="color:white;font-size:10px;"target="_blank" ><i class="fa fa-copyright"></i>KaushikCodeArts 2018</a>
 </div>
 </div>
 </div>
