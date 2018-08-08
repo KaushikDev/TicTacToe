@@ -14,6 +14,7 @@ var soundHitSocialIcon = new Audio("sounds/chime_bell.wav");
 var soundImprintMark = new Audio("sounds/pop_drip.wav");
 
 function init(){
+//location.reload();
 soundLoadScreen.play();
 document.getElementById("result").innerHTML= "Can You Beat The AI?";
 document.getElementById("result").style.color = "white";
@@ -31,8 +32,7 @@ enableStart();
 }
 
 function reset(){
-
-init();
+location.reload();
 }
 
 function remember(getId){
