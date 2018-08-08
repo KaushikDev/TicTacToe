@@ -17,7 +17,7 @@ function init(){
 //location.reload();
 soundLoadScreen.play();
 document.getElementById("result").innerHTML= "Can You Beat The AI?";
-document.getElementById("result").style.color = "white";
+document.getElementById("result").style.color = "gray";
 document.addEventListener("deviceready", onDeviceReady, false);
 state=0;
 for (var i = 0; i < gridButtonList.length; i++) {
