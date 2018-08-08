@@ -23,8 +23,8 @@ state=0;
 for (var i = 0; i < gridButtonList.length; i++) {
 
 
-gridButtonList[i].style.background="black";
-gridButtonList[i].disabled=true;
+//gridButtonList[i].style.background="black";
+//gridButtonList[i].disabled=true;
 gridButtonList[i].innerHTML="";
 	}
 resetButtonList[0].disabled=true;
