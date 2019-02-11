@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tic-Tac-Toe(by Piyush Kaushik)</title>
+<title>Tic-Tac-Toe</title>
   <!--<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css" />-->
   <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="bootstrap-3.3.7-dist/bootstrap-3.3.7-dist/css/bootstrap.min.css">
@@ -10,9 +10,13 @@
   <script src="bootstrap-3.3.7-dist/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
   <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
 </head>
-<body style="background-color:black;" onload="init()">
+<body onload="init()">
 <style>
-  
+  body{
+  color:black;
+  font-size:15px;
+  background-color:#f1f1f1;
+  }
   
 .tttStyle{
 width:350px;
@@ -24,57 +28,43 @@ border-style:transparent;
 }
 
 
-.button{
+.gridButton{
 vertical-align: top;
 height:100px;
 width:100px;
 font-size:40px;
 font-weight:bold;
 background-color: black;
+border-color:white;
 }
 
-.resetButton, .startButton{
-background-color:transparent;border-color:transparent;height:auto;padding:0;}
-
-.btn-default{
-background-color:transparent;border-color:transparent;}
-
-
- .fa-gamepad {
-color:limegreen;font-size:50px;
+.resetButton, .playButton{
+border-radius:5px;
 }
 
-.fa-whatsapp, .fa-twitter, .fa-facebook {
-color:white;font-size:20px;font-weight:bold;
+#resultSection, #footerSection {
+height:10%;
 }
 
-.fa-copyright {
-color:white;font-size:13px;
+
+#gameSection {
+height:60%;width:100%;
 }
 
-.fa-refresh {
-color:white;font-size:25px;
+gameButtonsSection{
+
 }
+.shareButton{
+	border-color:transparent;background-color:transparent;font-size:30px;
+} 
 
-#headerContainer, #footerContainer {
-height:5%;width:100%;background-color:#aa2f6b;}
-
-#headlineContainer {
-height:10%;width:100%;}
-
-#mainContainer {
-height:60%;width:100%;}
-
-#otherBodyContainer {
-height:10%;width:100%;}
-
-#yetOtherBodyContainer {
-height:10%;width:100%;}
-
+#result{
+font-size:30px;
+} 
 </style>
 
   <!-- Modal -->
-  <div class="modal fade" id="myModal" role="dialog">
+  <div class="modal fade" id="playGameModal" role="dialog">
     <div class="modal-dialog">
     
       <!-- Modal content-->
@@ -85,7 +75,7 @@ height:10%;width:100%;}
         </div>
         <div class="modal-body">
       <p>Quick Rules: </p>
-		  <p>1. Game begins only by clicking 'Gamepad' button and selecting either 'O' or 'X' .</p>
+		  <p>1. Game begins only by clicking 'Play' button and selecting either 'O' or 'X' .</p>
 		  <p>3. Human plays first by clicking a cell of their choice. AI plays second followed by human and so on.</p>
 		  <p>4. First player to complete a row or column or diagonal with selected mark(i.e. 'O' or 'X') wins the game.</p>
 		  <p>5. If you reset the game(after the game finishes or in middle of the game), rule number 1 follows again.</p>
@@ -100,112 +90,62 @@ height:10%;width:100%;}
     </div>
   </div>
 
-<div class="container" id="headerContainer">
-<div class="row text-center">
-<div class="col-xs-12 text-center">
-<a href="https://kaushikdev.github.io/portfolio/" style="color:white;font-size:auto;font-weight:bold;" target="_blank" ><i class="fa fa-copyright"></i>KaushikCodeArts 2018. All rights reserved.</a>
-</div>
-</div>
-</div>
+<div class="container">
 
-<div class="container" id="headlineContainer">
-
-<div class="row text-center">
-<div class="col-xs-12">
-<p id="result" style="font-size:25px;font-weight:bold;color:red;text-shadow:2px 2px gray;"></p>
-</div>
-</div>
-</div>
-
-<div class="container" id="mainContainer">
-<div class="row text-center">
-<div class="col-xs-4"><!--This column has nothing to show--></div>
-
-
-<div class="col-xs-4 tttStyle">
-<!--This column has actual calculator displayed-->
-
-<div >
-
-<button id="btn1" class="button gridButton" onClick='imprintHuman(this.id)' disabled></button>
-<button id="btn2" class="button gridButton" onClick='imprintHuman(this.id)' disabled></button>
-<button id="btn3" class="button gridButton" onClick='imprintHuman(this.id)' disabled></button>
-<button id="btn4" class="button gridButton" onClick='imprintHuman(this.id)' disabled></button>
-<button id="btn5" class="button gridButton" onClick='imprintHuman(this.id)' disabled></button>
-<button id="btn6" class="button gridButton" onClick='imprintHuman(this.id)' disabled></button>
-<button id="btn7" class="button gridButton" onClick='imprintHuman(this.id)' disabled></button>
-<button id="btn8" class="button gridButton" onClick='imprintHuman(this.id)' disabled></button>
-<button id="btn9" class="button gridButton" onClick='imprintHuman(this.id)' disabled></button>
-</div>
-</div>
-<div class="col-xs-4"><!--This column has nothing to show--></div>
-</div>
-
-<div class="row text-center">
-<div class="col-xs-12">
-<button id="start" class="startButton" data-toggle="modal" data-target="#myModal"><i class="fa fa-gamepad" id="gamePad"></i></button>
-</div>
-</div>
-
-</div>
-
-
-<div class="container" id="yetOtherBodyContainer"> 
-
-<div class="row text-center">
-<div class="col-xs-12">
-<!-- this div has nothing to show -->
-</div>
-</div>
-
-</div>
-
-
-
-
-
-
-
-
-<div class="container" id="otherBodyContainer"> 
-
-<div class="row text-center">
-<div class="col-xs-12">
-<!-- this div has nothing to show -->
-</div>
-</div>
-
-<div class="row text-center">
-<div class="col-xs-12">
-<button id="reset" class="resetButton" onClick="reset()"><i class="fa fa-refresh"></i></button>
-</div>
-</div>
-
-</div>
-
-
- <div class="container" id="footerContainer"> 
-<div class="row text-center">
-                <div class="col-xs-4">
-			<a id="fb" class="btn btn-default text-center" href="https://www.facebook.com/sharer/sharer.php?u=https://KaushikDev.github.io/TicTacToe" target="_blank" onclick="soundHitSocialIcon.play()"><i class="fa fa-facebook"></i></a>
+	<div id="resultSection" class="row text-center">
+		<div class="col-xs-12">
+			<p id="result"></p>
 		</div>
-		 <div class="col-xs-4">
-			<a id="whatsapp" class="btn btn-default text-center" href="whatsapp://send?text=https://KaushikDev.github.io/TicTacToe" onclick="soundHitSocialIcon.play()"><i class="fa fa-whatsapp"></i></a>
-        	</div>
-			 <div class="col-xs-4">
-			<a id="tweet" class="btn btn-default text-center" href="https://twitter.com/home?status=https://KaushikDev.github.io/TicTacToe" target="_blank" onclick="soundHitSocialIcon.play()"><i class="fa fa-twitter" ></i></a>
-                </div>
-        </div>
+	</div>
+
+	<div id="gameSection" class="row text-center">
+		<div class="col-xs-12 tttStyle">
+			<div>
+				<button id="btn1" class="resetButton gridButton" onClick='imprintHuman(this.id)' disabled></button>
+				<button id="btn2" class="resetButton gridButton" onClick='imprintHuman(this.id)' disabled></button>
+				<button id="btn3" class="resetButton gridButton" onClick='imprintHuman(this.id)' disabled></button>
+				<button id="btn4" class="resetButton gridButton" onClick='imprintHuman(this.id)' disabled></button>
+				<button id="btn5" class="resetButton gridButton" onClick='imprintHuman(this.id)' disabled></button>
+				<button id="btn6" class="resetButton gridButton" onClick='imprintHuman(this.id)' disabled></button>
+				<button id="btn7" class="resetButton gridButton" onClick='imprintHuman(this.id)' disabled></button>
+				<button id="btn8" class="resetButton gridButton" onClick='imprintHuman(this.id)' disabled></button>
+				<button id="btn9" class="resetButton gridButton" onClick='imprintHuman(this.id)' disabled></button>
+			</div>
+		</div>
 		
-<!--	
-	<div class="row text-center" style="margin-top:10px;">
-<div class="col-xs-12">
-<a href="https://kaushikdev.github.io/portfolio/" style="color:white;font-size:15px;"target="_blank" ><i class="fa fa-copyright"></i>KaushikCodeArts 2018</a>
-</div>
-</div>
+	</div>
 
--->
+	<div id="gameButtonsSection" class="row text-center">
+		<div class="col-xs-12">
+			<button class="btn btn-lg" id="reset" class="resetButton" onClick="reset()">Restart</button>
+			<button class="btn btn-lg" id="start" class="playButton" data-toggle="modal" data-target="#playGameModal">Play</button>
+			
+		</div>
+	</div>
 
+	<div id="footerSection" class="row text-center">
+		<div style="margin: 25px 0;">
+					<a id="fb" class="btn btn-default shareButton" href="https://www.facebook.com/sharer/sharer.php?u=https://KaushikDev.github.io/TicTacToe" target="_blank" onClick="soundHitSocialIcon.play()">
+				<i class="fa fa-facebook"></i>
+			</a>
+			<a id="wa" class="btn btn-default shareButton" href="whatsapp://send?text=https://KaushikDev.github.io/TicTacToe" onClick="soundHitSocialIcon.play()">
+				<i class="fa fa-whatsapp"></i>
+			</a>
+			<a id="tw" class="btn btn-default shareButton" href="https://twitter.com/home?status=https://KaushikDev.github.io/TicTacToe" target="_blank" onClick="soundHitSocialIcon.play()">
+				<i class="fa fa-twitter" ></i>
+			</a>
+			<a id="li" class="btn btn-default shareButton" href="
+https://www.linkedin.com/shareArticle?url=https://KaushikDev.github.io/TicTacToe&title=TicTacToe" target="_blank" onClick="soundHitSocialIcon.play()">
+				<i class="fa fa-linkedin" ></i>
+			</a>
+			<a id="ma" class="btn btn-default shareButton" href="mailto:?subject=TicTacToe.&amp;body=https://KaushikDev.github.io/TicTacToe" target="_blank" onClick="soundHitSocialIcon.play()">
+				<i class="fa fa-envelope-o" ></i>
+			</a>
+			
+			</div>
+			<p><i class="fa fa-copyright"></i>KaushikCodeArts 2019</p>	 
+	</div>
+		
 </div>
 
 
