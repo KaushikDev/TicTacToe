@@ -135,25 +135,34 @@ drawTest();
 
 function horizontalTest(mark){
 if(gridButtonList[0].innerHTML===mark && gridButtonList[1].innerHTML===mark && gridButtonList[2].innerHTML===mark ){
-gridButtonList[0].style.background="skyblue";
-gridButtonList[1].style.background="skyblue";
-gridButtonList[2].style.background="skyblue";
+gridButtonList[0].style.background="gray";
+gridButtonList[0].style.color="white";
+gridButtonList[1].style.background="gray";
+gridButtonList[1].style.color="white";
+gridButtonList[2].style.background="gray";
+gridButtonList[2].style.color="white";
 document.getElementById("result").innerHTML=  mark + "  wins the   " + "<i class='fa fa-trophy' style='color:gold;font-size:30px;'></i>";
 
 state=1;
 }
 else if (gridButtonList[3].innerHTML===mark && gridButtonList[4].innerHTML===mark && gridButtonList[5].innerHTML===mark ){
-gridButtonList[3].style.background="skyblue";
-gridButtonList[4].style.background="skyblue";
-gridButtonList[5].style.background="skyblue";
+gridButtonList[3].style.background="gray";
+gridButtonList[3].style.color="white";
+gridButtonList[4].style.background="gray";
+gridButtonList[4].style.color="white";
+gridButtonList[5].style.background="gray";
+gridButtonList[5].style.color="white";
 document.getElementById("result").innerHTML=  mark + "  wins the   " + "<i class='fa fa-trophy' style='color:gold;font-size:30px;'></i>";
 
 state=1;
 }
 else if (gridButtonList[6].innerHTML===mark && gridButtonList[7].innerHTML===mark && gridButtonList[8].innerHTML===mark ){
-gridButtonList[6].style.background="skyblue";
-gridButtonList[7].style.background="skyblue";
-gridButtonList[8].style.background="skyblue";
+gridButtonList[6].style.background="gray";
+gridButtonList[6].style.color="white";
+gridButtonList[7].style.background="gray";
+gridButtonList[7].style.color="white";
+gridButtonList[8].style.background="gray";
+gridButtonList[8].style.color="white";
 document.getElementById("result").innerHTML=  mark + "  wins the   " + "<i class='fa fa-trophy' style='color:gold;font-size:30px;'></i>";
 
 state=1;
@@ -165,25 +174,34 @@ resultFlag+=1;
 
 function verticalTest(mark){
 if(gridButtonList[0].innerHTML===mark && gridButtonList[3].innerHTML===mark && gridButtonList[6].innerHTML===mark ){
-gridButtonList[0].style.background="skyblue";
-gridButtonList[3].style.background="skyblue";
-gridButtonList[6].style.background="skyblue";
+gridButtonList[0].style.background="gray";
+gridButtonList[0].style.color="white";
+gridButtonList[3].style.background="gray";
+gridButtonList[3].style.color="white";
+gridButtonList[6].style.background="gray";
+gridButtonList[6].style.color="white";
 document.getElementById("result").innerHTML=  mark + "  wins the   " + "<i class='fa fa-trophy' style='color:gold;font-size:30px;'></i>";
 
 state=1;
 }
 else if (gridButtonList[1].innerHTML===mark && gridButtonList[4].innerHTML===mark && gridButtonList[7].innerHTML===mark ){
-gridButtonList[1].style.background="skyblue";
-gridButtonList[4].style.background="skyblue";
-gridButtonList[7].style.background="skyblue";
+gridButtonList[1].style.background="gray";
+gridButtonList[1].style.color="white";
+gridButtonList[4].style.background="gray";
+gridButtonList[4].style.color="white";
+gridButtonList[7].style.background="gray";
+gridButtonList[7].style.color="white";
 document.getElementById("result").innerHTML=  mark + "  wins the   " + "<i class='fa fa-trophy' style='color:gold;font-size:30px;'></i>";
 
 state=1;
 }
 else if (gridButtonList[2].innerHTML===mark && gridButtonList[5].innerHTML===mark && gridButtonList[8].innerHTML===mark ){
-gridButtonList[2].style.background="skyblue";
-gridButtonList[5].style.background="skyblue";
-gridButtonList[8].style.background="skyblue";
+gridButtonList[2].style.background="gray";
+gridButtonList[2].style.color="white";
+gridButtonList[5].style.background="gray";
+gridButtonList[5].style.color="white";
+gridButtonList[8].style.background="gray";
+gridButtonList[8].style.color="white";
 document.getElementById("result").innerHTML=  mark + "  wins the   " + "<i class='fa fa-trophy' style='color:gold;font-size:30px;'></i>";
 
 state=1;
@@ -194,18 +212,24 @@ resultFlag+=1;
 
 function diagonalTest(mark){
 if(gridButtonList[2].innerHTML===mark && gridButtonList[4].innerHTML===mark && gridButtonList[6].innerHTML===mark ){
-gridButtonList[2].style.background="skyblue";
-gridButtonList[4].style.background="skyblue";
-gridButtonList[6].style.background="skyblue";
+gridButtonList[2].style.background="gray";
+gridButtonList[2].style.color="white";
+gridButtonList[4].style.background="gray";
+gridButtonList[4].style.color="white";
+gridButtonList[6].style.background="gray";
+gridButtonList[6].style.color="white";
 document.getElementById("result").innerHTML=  mark + "  wins the   " + "<i class='fa fa-trophy' style='color:gold;font-size:30px;'></i>";
 
 state=1;
 }
 
 else if (gridButtonList[0].innerHTML===mark && gridButtonList[4].innerHTML===mark && gridButtonList[8].innerHTML===mark ){
-gridButtonList[0].style.background="skyblue";
-gridButtonList[4].style.background="skyblue";
-gridButtonList[8].style.background="skyblue";
+gridButtonList[0].style.background="gray";
+gridButtonList[0].style.color="white";
+gridButtonList[4].style.background="gray";
+gridButtonList[4].style.color="white";
+gridButtonList[8].style.background="gray";
+gridButtonList[8].style.color="white";
 document.getElementById("result").innerHTML= mark + "  wins the   " + "<i class='fa fa-trophy' style='color:gold;font-size:30px;'></i>";
 
 state=1;
@@ -224,8 +248,8 @@ count+=1;
 console.log("empty cells at this point i.e. count = "+count);
 if(count===0){
 state=1;
-document.getElementById("result").innerHTML= "Match Ended In A Draw !!  "+ "<i class='fa fa-meh-o' style='color:red;font-size:30px;'></i>";
-document.getElementById("result").style.color = "red";
+document.getElementById("result").innerHTML= "Match Draw !!  "+ "<i class='fa fa-meh-o' style='color:red;font-size:30px;'></i>";
+//document.getElementById("result").style.color = "red";
 }
 }
 
@@ -250,6 +274,6 @@ gridButtonList[i].disabled=true;
 		
 		function doTheseOnGamePlay(){
 		document.getElementById("result").innerHTML = "Game In Progress...";
-		document.getElementById("result").style.color = "Green";
+		//document.getElementById("result").style.color = "Green";
 			
 		}
