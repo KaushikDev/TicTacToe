@@ -12,6 +12,7 @@ var resetButtonList = document.getElementsByClassName("resetButton");
 var soundLoadScreen = new Audio("sounds/pad_confirm.wav");
 var soundHitSocialIcon = new Audio("sounds/chime_bell.wav");
 var soundImprintMark = new Audio("sounds/pop_drip.wav");
+var soundWinningApplause = new Audio("sounds/applause.wav");
 
 function init(){
 //location.reload();
@@ -142,7 +143,7 @@ gridButtonList[1].style.color="white";
 gridButtonList[2].style.background="gray";
 gridButtonList[2].style.color="white";
 document.getElementById("result").innerHTML=  mark + "  wins the   " + "<i class='fa fa-trophy' style='color:gold;font-size:30px;'></i>";
-
+soundWinningApplause.play();
 state=1;
 }
 else if (gridButtonList[3].innerHTML===mark && gridButtonList[4].innerHTML===mark && gridButtonList[5].innerHTML===mark ){
@@ -153,7 +154,7 @@ gridButtonList[4].style.color="white";
 gridButtonList[5].style.background="gray";
 gridButtonList[5].style.color="white";
 document.getElementById("result").innerHTML=  mark + "  wins the   " + "<i class='fa fa-trophy' style='color:gold;font-size:30px;'></i>";
-
+soundWinningApplause.play();
 state=1;
 }
 else if (gridButtonList[6].innerHTML===mark && gridButtonList[7].innerHTML===mark && gridButtonList[8].innerHTML===mark ){
@@ -164,7 +165,7 @@ gridButtonList[7].style.color="white";
 gridButtonList[8].style.background="gray";
 gridButtonList[8].style.color="white";
 document.getElementById("result").innerHTML=  mark + "  wins the   " + "<i class='fa fa-trophy' style='color:gold;font-size:30px;'></i>";
-
+soundWinningApplause.play();
 state=1;
 }
 
@@ -181,7 +182,7 @@ gridButtonList[3].style.color="white";
 gridButtonList[6].style.background="gray";
 gridButtonList[6].style.color="white";
 document.getElementById("result").innerHTML=  mark + "  wins the   " + "<i class='fa fa-trophy' style='color:gold;font-size:30px;'></i>";
-
+soundWinningApplause.play();
 state=1;
 }
 else if (gridButtonList[1].innerHTML===mark && gridButtonList[4].innerHTML===mark && gridButtonList[7].innerHTML===mark ){
@@ -192,7 +193,7 @@ gridButtonList[4].style.color="white";
 gridButtonList[7].style.background="gray";
 gridButtonList[7].style.color="white";
 document.getElementById("result").innerHTML=  mark + "  wins the   " + "<i class='fa fa-trophy' style='color:gold;font-size:30px;'></i>";
-
+soundWinningApplause.play();
 state=1;
 }
 else if (gridButtonList[2].innerHTML===mark && gridButtonList[5].innerHTML===mark && gridButtonList[8].innerHTML===mark ){
@@ -203,7 +204,7 @@ gridButtonList[5].style.color="white";
 gridButtonList[8].style.background="gray";
 gridButtonList[8].style.color="white";
 document.getElementById("result").innerHTML=  mark + "  wins the   " + "<i class='fa fa-trophy' style='color:gold;font-size:30px;'></i>";
-
+soundWinningApplause.play();
 state=1;
 }
 else
@@ -219,7 +220,7 @@ gridButtonList[4].style.color="white";
 gridButtonList[6].style.background="gray";
 gridButtonList[6].style.color="white";
 document.getElementById("result").innerHTML=  mark + "  wins the   " + "<i class='fa fa-trophy' style='color:gold;font-size:30px;'></i>";
-
+soundWinningApplause.play();
 state=1;
 }
 
@@ -231,7 +232,7 @@ gridButtonList[4].style.color="white";
 gridButtonList[8].style.background="gray";
 gridButtonList[8].style.color="white";
 document.getElementById("result").innerHTML= mark + "  wins the   " + "<i class='fa fa-trophy' style='color:gold;font-size:30px;'></i>";
-
+soundWinningApplause.play();
 state=1;
 }
 else
