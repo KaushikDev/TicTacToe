@@ -9,29 +9,28 @@ var countVisits;
 var state=0;
 var gridButtonList = document.getElementsByClassName("gridButton");
 var resetButtonList = document.getElementsByClassName("resetButton");
+var start = document.getElementById("start");
+var result = document.getElementById("result");
+var reset = document.getElementById("reset");
 var soundLoadScreen = new Audio("sounds/pad_confirm.wav");
 var soundHitSocialIcon = new Audio("sounds/chime_bell.wav");
 var soundImprintMark = new Audio("sounds/pop_drip.wav");
+var soundWinningApplause = new Audio("sounds/applause.wav");
 
 function init(){
-//location.reload();
-soundLoadScreen.play();
-document.getElementById("result").innerHTML= "TicTacToe";
-document.addEventListener("deviceready", onDeviceReady, false);
-state=0;
-for (var i = 0; i < gridButtonList.length; i++) {
-
-
-//gridButtonList[i].style.background="black";
-//gridButtonList[i].disabled=true;
-gridButtonList[i].innerHTML="";
+	soundLoadScreen.play();
+	result.innerHTML= "TicTacToe";
+	document.addEventListener("deviceready", onDeviceReady, false);
+	state=0;
+	for (var i = 0; i < gridButtonList.length; i++) {
+		gridButtonList[i].innerHTML="";
 	}
-resetButtonList[0].disabled=true;
-enableStart();
+	resetButtonList[0].disabled=true;
+	enableStart();
 }
 
-function reset(){
-location.reload();
+function resetGame(){
+	location.reload();
 }
 
 function remember(getId){
@@ -101,18 +100,18 @@ for (var i = 0; i < gridButtonList.length; i++) {
 }
 
 function enableStart(){
-var dataToggleValue= document.getElementById("start").getAttribute("data-toggle");  
+var dataToggleValue= start.getAttribute("data-toggle");  
 if ((dataToggleValue==="")) {       
-    document.getElementById("start").removeAttribute("data-toggle");  
-    document.getElementById("start").setAttribute("data-toggle", "modal");
+    start.removeAttribute("data-toggle");  
+    start.setAttribute("data-toggle", "modal");
 }
 }
 
 function disableStart(){
-var dataToggleValue = document.getElementById("start").getAttribute("data-toggle");  
+var dataToggleValue = start.getAttribute("data-toggle");  
 if ((dataToggleValue==="modal")) {      
-    document.getElementById("start").removeAttribute("data-toggle");  
-document.getElementById("start").setAttribute("data-toggle", "");
+    start.removeAttribute("data-toggle");  
+start.setAttribute("data-toggle", "");
 }
 }
 
@@ -126,7 +125,7 @@ verticalTest(mark);
 diagonalTest(mark);
 
 }
-console.log("p tag value at this point is :"+ document.getElementById("result").innerHTML);
+console.log("p tag value at this point is :"+ result.innerHTML);
 console.log("result Flag value before going into draw function is :"+resultFlag);
 if(resultFlag===6){
 drawTest();
@@ -135,27 +134,36 @@ drawTest();
 
 function horizontalTest(mark){
 if(gridButtonList[0].innerHTML===mark && gridButtonList[1].innerHTML===mark && gridButtonList[2].innerHTML===mark ){
-gridButtonList[0].style.background="skyblue";
-gridButtonList[1].style.background="skyblue";
-gridButtonList[2].style.background="skyblue";
-document.getElementById("result").innerHTML=  mark + "  wins the   " + "<i class='fa fa-trophy' style='color:gold;font-size:30px;'></i>";
-
+gridButtonList[0].style.background="gray";
+gridButtonList[0].style.color="white";
+gridButtonList[1].style.background="gray";
+gridButtonList[1].style.color="white";
+gridButtonList[2].style.background="gray";
+gridButtonList[2].style.color="white";
+result.innerHTML=  mark + "  wins the   " + "<i class='fa fa-trophy' style='color:gold;font-size:50px;'></i>";
+soundWinningApplause.play();
 state=1;
 }
 else if (gridButtonList[3].innerHTML===mark && gridButtonList[4].innerHTML===mark && gridButtonList[5].innerHTML===mark ){
-gridButtonList[3].style.background="skyblue";
-gridButtonList[4].style.background="skyblue";
-gridButtonList[5].style.background="skyblue";
-document.getElementById("result").innerHTML=  mark + "  wins the   " + "<i class='fa fa-trophy' style='color:gold;font-size:30px;'></i>";
-
+gridButtonList[3].style.background="gray";
+gridButtonList[3].style.color="white";
+gridButtonList[4].style.background="gray";
+gridButtonList[4].style.color="white";
+gridButtonList[5].style.background="gray";
+gridButtonList[5].style.color="white";
+result.innerHTML=  mark + "  wins the   " + "<i class='fa fa-trophy' style='color:gold;font-size:50px;'></i>";
+soundWinningApplause.play();
 state=1;
 }
 else if (gridButtonList[6].innerHTML===mark && gridButtonList[7].innerHTML===mark && gridButtonList[8].innerHTML===mark ){
-gridButtonList[6].style.background="skyblue";
-gridButtonList[7].style.background="skyblue";
-gridButtonList[8].style.background="skyblue";
-document.getElementById("result").innerHTML=  mark + "  wins the   " + "<i class='fa fa-trophy' style='color:gold;font-size:30px;'></i>";
-
+gridButtonList[6].style.background="gray";
+gridButtonList[6].style.color="white";
+gridButtonList[7].style.background="gray";
+gridButtonList[7].style.color="white";
+gridButtonList[8].style.background="gray";
+gridButtonList[8].style.color="white";
+result.innerHTML=  mark + "  wins the   " + "<i class='fa fa-trophy' style='color:gold;font-size:50px;'></i>";
+soundWinningApplause.play();
 state=1;
 }
 
@@ -165,27 +173,36 @@ resultFlag+=1;
 
 function verticalTest(mark){
 if(gridButtonList[0].innerHTML===mark && gridButtonList[3].innerHTML===mark && gridButtonList[6].innerHTML===mark ){
-gridButtonList[0].style.background="skyblue";
-gridButtonList[3].style.background="skyblue";
-gridButtonList[6].style.background="skyblue";
-document.getElementById("result").innerHTML=  mark + "  wins the   " + "<i class='fa fa-trophy' style='color:gold;font-size:30px;'></i>";
-
+gridButtonList[0].style.background="gray";
+gridButtonList[0].style.color="white";
+gridButtonList[3].style.background="gray";
+gridButtonList[3].style.color="white";
+gridButtonList[6].style.background="gray";
+gridButtonList[6].style.color="white";
+result.innerHTML=  mark + "  wins the   " + "<i class='fa fa-trophy' style='color:gold;font-size:50px;'></i>";
+soundWinningApplause.play();
 state=1;
 }
 else if (gridButtonList[1].innerHTML===mark && gridButtonList[4].innerHTML===mark && gridButtonList[7].innerHTML===mark ){
-gridButtonList[1].style.background="skyblue";
-gridButtonList[4].style.background="skyblue";
-gridButtonList[7].style.background="skyblue";
-document.getElementById("result").innerHTML=  mark + "  wins the   " + "<i class='fa fa-trophy' style='color:gold;font-size:30px;'></i>";
-
+gridButtonList[1].style.background="gray";
+gridButtonList[1].style.color="white";
+gridButtonList[4].style.background="gray";
+gridButtonList[4].style.color="white";
+gridButtonList[7].style.background="gray";
+gridButtonList[7].style.color="white";
+result.innerHTML=  mark + "  wins the   " + "<i class='fa fa-trophy' style='color:gold;font-size:50px;'></i>";
+soundWinningApplause.play();
 state=1;
 }
 else if (gridButtonList[2].innerHTML===mark && gridButtonList[5].innerHTML===mark && gridButtonList[8].innerHTML===mark ){
-gridButtonList[2].style.background="skyblue";
-gridButtonList[5].style.background="skyblue";
-gridButtonList[8].style.background="skyblue";
-document.getElementById("result").innerHTML=  mark + "  wins the   " + "<i class='fa fa-trophy' style='color:gold;font-size:30px;'></i>";
-
+gridButtonList[2].style.background="gray";
+gridButtonList[2].style.color="white";
+gridButtonList[5].style.background="gray";
+gridButtonList[5].style.color="white";
+gridButtonList[8].style.background="gray";
+gridButtonList[8].style.color="white";
+result.innerHTML=  mark + "  wins the   " + "<i class='fa fa-trophy' style='color:gold;font-size:50px;'></i>";
+soundWinningApplause.play();
 state=1;
 }
 else
@@ -194,20 +211,26 @@ resultFlag+=1;
 
 function diagonalTest(mark){
 if(gridButtonList[2].innerHTML===mark && gridButtonList[4].innerHTML===mark && gridButtonList[6].innerHTML===mark ){
-gridButtonList[2].style.background="skyblue";
-gridButtonList[4].style.background="skyblue";
-gridButtonList[6].style.background="skyblue";
-document.getElementById("result").innerHTML=  mark + "  wins the   " + "<i class='fa fa-trophy' style='color:gold;font-size:30px;'></i>";
-
+gridButtonList[2].style.background="gray";
+gridButtonList[2].style.color="white";
+gridButtonList[4].style.background="gray";
+gridButtonList[4].style.color="white";
+gridButtonList[6].style.background="gray";
+gridButtonList[6].style.color="white";
+result.innerHTML=  mark + "  wins the   " + "<i class='fa fa-trophy' style='color:gold;font-size:50px;'></i>";
+soundWinningApplause.play();
 state=1;
 }
 
 else if (gridButtonList[0].innerHTML===mark && gridButtonList[4].innerHTML===mark && gridButtonList[8].innerHTML===mark ){
-gridButtonList[0].style.background="skyblue";
-gridButtonList[4].style.background="skyblue";
-gridButtonList[8].style.background="skyblue";
-document.getElementById("result").innerHTML= mark + "  wins the   " + "<i class='fa fa-trophy' style='color:gold;font-size:30px;'></i>";
-
+gridButtonList[0].style.background="gray";
+gridButtonList[0].style.color="white";
+gridButtonList[4].style.background="gray";
+gridButtonList[4].style.color="white";
+gridButtonList[8].style.background="gray";
+gridButtonList[8].style.color="white";
+result.innerHTML= mark + "  wins the   " + "<i class='fa fa-trophy' style='color:gold;font-size:50px;'></i>";
+soundWinningApplause.play();
 state=1;
 }
 else
@@ -224,8 +247,8 @@ count+=1;
 console.log("empty cells at this point i.e. count = "+count);
 if(count===0){
 state=1;
-document.getElementById("result").innerHTML= "Match Ended In A Draw !!  "+ "<i class='fa fa-meh-o' style='color:red;font-size:30px;'></i>";
-document.getElementById("result").style.color = "red";
+result.innerHTML= "Match Draw !!  "+ "<i class='fa fa-meh-o' style='color:red;font-size:50px;'></i>";
+//result.style.color = "red";
 }
 }
 
@@ -249,7 +272,5 @@ gridButtonList[i].disabled=true;
 		
 		
 		function doTheseOnGamePlay(){
-		document.getElementById("result").innerHTML = "Game In Progress...";
-		document.getElementById("result").style.color = "Green";
-			
+		result.innerHTML = "Game In Progress...";			
 		}

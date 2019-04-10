@@ -18,6 +18,7 @@ var soundImprintMark = new Audio("sounds/pop_drip.wav");
 var soundWinningApplause = new Audio("sounds/applause.wav");
 
 function init(){
+	reset.style.color = "gray";
 	soundLoadScreen.play();
 	result.innerHTML= "TicTacToe";
 	document.addEventListener("deviceready", onDeviceReady, false);
@@ -272,5 +273,7 @@ gridButtonList[i].disabled=true;
 		
 		
 		function doTheseOnGamePlay(){
-		result.innerHTML = "Game In Progress...";			
+		result.innerHTML = "Game In Progress...";
+		start.style.color = 'gray';		
+		reset.style.color = "white";	
 		}
